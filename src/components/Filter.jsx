@@ -12,7 +12,7 @@ function Filter() {
     <div
       className="col s4 hide-on-med-and-down"
       style={{
-        background: "#eee",
+        background: "#EAEAEA",
         padding: "1%",
         color: "black",
         fontWeight: "800",

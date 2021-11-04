@@ -2,7 +2,12 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer class="page-footer green lighten-2 hide-on-med-and-down">
+    <footer
+      class="page-footer hide-on-med-and-down"
+      style={{
+        backgroundImage: "linear-gradient(-20deg, #6944ff 0%, #6944ff 100%)",
+      }}
+    >
       <div class="container">
         <div class="row">
           <div class="col l6 s12">

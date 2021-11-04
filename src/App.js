@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import "./App.css";
 
@@ -6,6 +6,8 @@ import Filter from "./components/Filter";
 import Navbar from "./components/Navbar";
 import Container from "./components/Container";
 import Footer from "./components/Footer";
+
+import Test from "./components/Test";
 
 import M from "materialize-css";
 
@@ -15,14 +17,15 @@ function App() {
     var instances = M.Modal.init(elems, {});
   });
 
-  // document.addEventListener("DOMContentLoaded", function () {
-  //   var elems = document.querySelectorAll("select");
-  //   var instances = M.FormSelect.init(elems, {});
-  // });
+  document.addEventListener("DOMContentLoaded", function () {
+    var elems = document.querySelectorAll("select");
+    var instances = M.FormSelect.init(elems, {});
+  });
 
   return (
     <>
       <Navbar />
+      {/* <Test /> */}
       <div className="container" style={{ width: "100%", marginTop: "2%" }}>
         <div className="row">
           <Filter />
@@ -36,7 +39,7 @@ function App() {
         <div className="col s10 offset-s10 fixed-action-btn">
           <a
             data-target="modal1"
-            class="btn-floating btn-large waves-effect waves-light red pulse btn modal-trigger"
+            class="btn-floating btn-large waves-light red pulse btn modal-trigger"
           >
             <i class="material-icons">filter_list</i>
           </a>
