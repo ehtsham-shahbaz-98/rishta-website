@@ -12,7 +12,7 @@ function Navbar() {
     <div>
       <nav>
         <div className="nav-wrapper pink darken-1">
-          <a href="#!" className="brand-logo" style={{ marginLeft: "1%" }}>
+          <a href="#!" className="brand-logo">
             Shadi Registerar
           </a>
           <a href="#" data-target="mobile-demo" className="sidenav-trigger">

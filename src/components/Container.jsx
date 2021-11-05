@@ -4,7 +4,7 @@ import Card from "./Card";
 
 function Container() {
   return (
-    <div className="col s8 align-center">
+    <div className="col s12 align-center">
       <Card />
     </div>
   );

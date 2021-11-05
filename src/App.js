@@ -28,20 +28,20 @@ function App() {
       {/* <Test /> */}
       <div className="container" style={{ width: "100%", marginTop: "2%" }}>
         <div className="row">
-          <Filter />
+          {/* <Filter /> */}
           <Container />
         </div>
       </div>
-      <div
-        className="row hide-on-large-only"
-        style={{ marginBottom: "1%", marginTop: "1%" }}
-      >
+      {/* hide-on-large-only */}
+      <div className="row" style={{ marginBottom: "1%", marginTop: "1%" }}>
         <div className="col s10 offset-s10 fixed-action-btn">
           <a
             data-target="modal1"
-            class="btn-floating btn-large waves-light red pulse btn modal-trigger"
+            class="btn-floating btn-large waves-light white pulse btn modal-trigger"
           >
-            <i class="material-icons">filter_list</i>
+            <i class="material-icons" style={{ color: "#000000" }}>
+              filter_list
+            </i>
           </a>
 
           <div id="modal1" class="modal">
