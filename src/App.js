@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 
 import Filter from "./components/Filter";
+import FilterNav from "./components/FilterNav";
 import Navbar from "./components/Navbar";
 import Container from "./components/Container";
 import Footer from "./components/Footer";
@@ -25,6 +26,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <FilterNav />
       {/* <Test /> */}
       <div className="container" style={{ width: "100%", marginTop: "2%" }}>
         <div className="row">
@@ -34,12 +36,12 @@ function App() {
       </div>
       {/* hide-on-large-only */}
       <div className="row" style={{ marginBottom: "1%", marginTop: "1%" }}>
-        <div className="col s10 offset-s10 fixed-action-btn">
+        <div className="col s12 offset-s10 fixed-action-btn">
           <a
             data-target="modal1"
-            class="btn-floating btn-large waves-light white pulse btn modal-trigger"
+            class="btn-floating btn-large waves-light blue pulse btn modal-trigger"
           >
-            <i class="material-icons" style={{ color: "#000000" }}>
+            <i class="material-icons" style={{ color: "white" }}>
               filter_list
             </i>
           </a>

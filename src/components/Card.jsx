@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import TinderCard from "react-tinder-card";
-import Tinder from "./Tinder";
+// import TinderCard from "react-tinder-card";
+// import Tinder from "./Tinder";
 
-import "../assets/css/TinderCards.scss";
+// import "../assets/css/TinderCards.scss";
 import "../assets/css/CardsMain.scss";
 
 // import Info from "./Info";
@@ -35,16 +35,16 @@ const responsive = {
 
 function Card() {
   const [rishtas, setRishtas] = useState([]);
-  const [visible, setVisible] = useState(3);
+
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false);
-  const [showID, setShowID] = useState(null);
-  const [deviceType, setDeviceType] = useState(["tablet", "mobile"]);
-  const view = "View More";
+  const [showID, setShowID] = useState([]);
+  const [deviceType, setDeviceType] = useState(["desktop", "tablet", "mobile"]);
+  const [allowSwipe, setAllowSwipe] = useState(true);
+  const [reviews, setReviews] = useState([]);
+  const [showReview, setShowReview] = useState(false);
 
-  const showMoreItems = () => {
-    setVisible((prevValue) => prevValue + 3);
-  };
+  const view = "View More";
 
   useEffect(() => {
     setLoading(true);
@@ -56,9 +56,27 @@ function Card() {
         const result = res.data.data;
 
         setRishtas(result.rishtas);
+        {
+          result.rishtas.map((itemID, index) => {
+            setShowID(itemID.id);
+            console.log(showID);
+          });
+        }
 
-        console.log(result.rishtas);
+        // console.log(result);
         setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    axios
+      .get(`https://shadiregistrar.com/api/v1/get-reviews/?rishtaID=${showID}`)
+      .then((res) => {
+        const feedback = res.data.data.reviews;
+        console.log(feedback);
+        setReviews(feedback);
+        // console.log(reviews);
       })
       .catch((err) => {
         console.log(err);
@@ -115,8 +133,8 @@ function Card() {
       ) : (
         <>
           <Carousel
-            swipeable={true}
-            draggable={true}
+            swipeable={allowSwipe}
+            draggable={allowSwipe}
             showDots={false}
             responsive={responsive}
             infinite={true}
@@ -208,6 +226,32 @@ function Card() {
                                   Proposal Status
                                 </div>
                               </div>
+                              {showReview
+                                ? showID === item.id && (
+                                    <>
+                                      <div
+                                        class="profile-card-inf__item"
+                                        style={{
+                                          display:
+                                            show === true ? "none" : "initial",
+                                        }}
+                                      >
+                                        <div class="profile-card-inf__title">
+                                          <h1>Feedback</h1>
+                                        </div>
+
+                                        {reviews.map((feed, showID) => {
+                                          <div
+                                            key={showID}
+                                            class="profile-card-inf__txt"
+                                          >
+                                            <p>⭐ {feed.family_details}</p>;
+                                          </div>;
+                                        })}
+                                      </div>
+                                    </>
+                                  )
+                                : null}
                               {show
                                 ? showID === item.id && (
                                     // <div class="wrapper-show">
@@ -216,28 +260,90 @@ function Card() {
                                     <>
                                       <div class="profile-card-inf__item">
                                         <div class="profile-card-inf__title">
-                                          {item.qualifications}
+                                          <h1>Personal Details</h1>
                                         </div>
                                         <div class="profile-card-inf__txt">
-                                          Qualification
+                                          <p>🧍‍♀️ Gender: Female</p>
+                                          <p>🧍‍♀️ Marital Status: Single</p>
+                                          <p>🧍‍♀️ Have Kids: no</p>
+                                          <p>🧍‍♀️ Looking For: Single</p>
+                                          <p>🧍‍♀️ Age: 31</p>
+                                          <p>🧍‍♀️ Height: 5.11</p>
+                                          <p>🧍‍♀️ Complexion: fair</p>
+                                          <p>🧍‍♀️ City: Lahore</p>
+                                          <p>🧍‍♀️ Country: Pakistan</p>
                                         </div>
                                       </div>
 
                                       <div class="profile-card-inf__item">
                                         <div class="profile-card-inf__title">
-                                          {item.religion}
+                                          <h1>Religion Details</h1>
                                         </div>
                                         <div class="profile-card-inf__txt">
-                                          Religion
+                                          <p>🕌 Religion: islam</p>
+                                          <p>🕌 Sect: Sunni</p>
+                                          <p>🕌 Caste: Malik</p>
                                         </div>
                                       </div>
 
                                       <div class="profile-card-inf__item">
                                         <div class="profile-card-inf__title">
-                                          {item.looking_for}
+                                          <h1>Job Details</h1>
                                         </div>
                                         <div class="profile-card-inf__txt">
-                                          Looking For
+                                          <p>💼 Profession: job</p>
+                                          <p>📄 Degree Level: Masters</p>
+                                          <p>
+                                            📄 Education/Qualifications: MIT
+                                          </p>
+                                          <p>
+                                            🏢Name of Educational Insitute: VU
+                                          </p>
+                                          <p>
+                                            💼 Income (PKR. /per month): 100K -
+                                            150K
+                                          </p>
+                                          <p>💼 Job City: Lahore</p>
+                                          <p>💼 Job Country: Pakistan</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="profile-card-inf__item">
+                                        <div class="profile-card-inf__title">
+                                          <h1>Family Details</h1>
+                                        </div>
+                                        <div class="profile-card-inf__txt">
+                                          <p>
+                                            👪 Preferred Language: ,Punjabi,Urdu
+                                          </p>
+                                          <p>👪 Guardian: Mother</p>
+                                          <p>👪 Family Details: 6 (3+3)</p>
+                                          <p>👪 Father Occupation: Late</p>
+                                          <p>👪 Mother Occupation: House</p>
+                                          <p>👪 Sisters: 3</p>
+                                          <p>👪 Brothers: 3</p>
+                                          <p>
+                                            👪 Requirement: Preferred (lecturers
+                                            & Medical professional) other good
+                                            educational baground also
+                                          </p>
+                                          <p>👪 Other Details: -</p>
+                                          <p>
+                                            👪 Hobbies: Cricket IT Certification
+                                          </p>
+                                        </div>
+                                      </div>
+                                      <div class="profile-card-inf__item">
+                                        <div class="profile-card-inf__title">
+                                          <h1>Requirements</h1>
+                                        </div>
+                                        <div class="profile-card-inf__txt">
+                                          <p>✔️ Height Range: 5.5 - 5.8</p>
+                                          <p>✔️ Age Range: 25 - 30</p>
+                                          <p>
+                                            ✔️ Caste: Within same caste only
+                                          </p>
+                                          <p>✔️ City: Within same city only</p>
                                         </div>
                                       </div>
                                     </>
@@ -249,19 +355,29 @@ function Card() {
                             </div>
 
                             <div class="profile-card-ctr">
-                              <button class="profile-card__button button--blue js-message-btn">
-                                Feedback {item.feedbacks}
+                              <button
+                                onClick={() => {
+                                  setShowReview(!showReview);
+                                  setShowID(item.id);
+                                  setAllowSwipe(showReview);
+                                }}
+                                class="profile-card__button button--blue js-message-btn"
+                              >
+                                {showReview
+                                  ? showID === item.id && "Hide Feedback"
+                                  : `Feedback ${item.feedbacks}`}
                               </button>
 
                               <button
                                 onClick={() => {
                                   setShow(!show);
                                   setShowID(item.id);
+                                  setAllowSwipe(show);
                                 }}
                                 class="profile-card__button button--orange"
                               >
                                 {show
-                                  ? showID === item.id && "View Less"
+                                  ? showID === item.id && "View Less To Swipe"
                                   : view}
                               </button>
                             </div>

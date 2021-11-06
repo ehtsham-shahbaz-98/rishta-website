@@ -12,7 +12,7 @@ function Navbar() {
     <div>
       <nav>
         <div className="nav-wrapper pink darken-1">
-          <a href="#!" className="brand-logo">
+          <a className="brand-logo" style={{ fontSize: "20px" }}>
             Shadi Registerar
           </a>
           <a href="#" data-target="mobile-demo" className="sidenav-trigger">
@@ -20,21 +20,19 @@ function Navbar() {
           </a>
           <ul className="right hide-on-med-and-down">
             <li>
-              <a href="sass.html">Home</a>
+              <a>Home</a>
             </li>
             <li>
-              <a href="badges.html">Rishtas</a>
+              <a>Rishtas</a>
             </li>
             <li>
-              <a href="collapsible.html">Pricing</a>
+              <a>Pricing</a>
             </li>
             <li>
-              <a href="mobile.html">How It Works?</a>
+              <a>How It Works?</a>
             </li>
             <li>
-              <a className="purple darken-2 btn" href="#">
-                Post Rishta
-              </a>
+              <a className="purple darken-2 btn">Post Rishta</a>
             </li>
           </ul>
         </div>
@@ -42,26 +40,22 @@ function Navbar() {
 
       <ul className="sidenav" id="mobile-demo">
         <li>
-          <a href="#!" className="brand-logo">
-            Shadi Registerar
-          </a>
+          <a className="brand-logo">Shadi Registerar</a>
         </li>
         <li>
-          <a href="sass.html">Home</a>
+          <a>Home</a>
         </li>
         <li>
-          <a href="badges.html">Rishtas</a>
+          <a>Rishtas</a>
         </li>
         <li>
-          <a href="collapsible.html">Pricing</a>
+          <a>Pricing</a>
         </li>
         <li>
-          <a href="mobile.html">How It Works?</a>
+          <a>How It Works?</a>
         </li>
         <li>
-          <a className="purple darken-2 btn" href="#">
-            Post Rishta
-          </a>
+          <a className="purple darken-2 btn">Post Rishta</a>
         </li>
       </ul>
     </div>

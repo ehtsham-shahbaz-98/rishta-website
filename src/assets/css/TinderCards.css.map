@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,CAAC;EACR,QAAQ,EAAE,QAAQ;EAQlB,qDAAqD;CACtD;;AAED;;;;IAII;AAEJ,AAAA,2BAA2B,CAAC;EAC1B,oBAAoB;EACpB,eAAe,EAAE,MAAM;EACvB,UAAU,EAAE,GAAG;CAEhB;;AAED,AAAA,MAAM,CAAC;EACL,QAAQ,EAAE,QAAQ;CACnB",
+    "sources": [
+        "TinderCards.scss"
+    ],
+    "names": [],
+    "file": "TinderCards.css"
+}

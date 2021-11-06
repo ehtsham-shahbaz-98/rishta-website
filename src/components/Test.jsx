@@ -1,7 +1,7 @@
 import React from "react";
 import Popup from "reactjs-popup";
 
-import "../assets/css/Info.scss";
+// import "../assets/css/Info.scss";
 
 export default () => (
   <Popup
